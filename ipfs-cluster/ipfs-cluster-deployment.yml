@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: ipfs-cluster-bootstrapper
-        image: "ipfs/ipfs-cluster:latest"
+        image: "zenground0/ipfs-cluster:official-test"
         command: ["/usr/local/bin/start-daemons.sh"]
         ports:
         - containerPort: 4001
@@ -48,7 +48,7 @@ metadata:
     prometheus.io/port: "5001"
     prometheus.io/path: "debug/metrics/prometheus"
 spec:
-  replicas: 5
+  replicas: 3
   template:
     metadata:
       labels:
@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
       - name: ipfs-cluster
-        image: "ipfs/ipfs-cluster:latest"
+        image: "zenground0/ipfs-cluster:official-test"
         command: ["/usr/local/bin/start-daemons.sh"]
         ports:
         - containerPort: 4001
@@ -74,4 +74,4 @@ spec:
           protocol: "TCP"
         - containerPort: 9096
           name: "cluster"
-protocol: "TCP"
+          protocol: "TCP"

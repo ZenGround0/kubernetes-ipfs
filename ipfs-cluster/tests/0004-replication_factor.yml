@@ -26,5 +26,3 @@ steps:
     assertions:
       - line: 0
         should_be_equal_to: "3 pinned"
-      - line: 1
-        should_be_equal_to: "{{N_minus_3}} remote"

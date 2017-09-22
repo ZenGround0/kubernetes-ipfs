@@ -29,8 +29,6 @@ steps:
     assertions:
       - line: 0
         should_be_equal_to: "1 pinned"
-      - line: 1
-        should_be_equal_to: "{{N_minus_1}} remote"
   - name: change replication factor to 3
     on_node: 2
     cmd: "ipfs-cluster-ctl pin add -r 3 $HASH && sleep 1"
@@ -45,8 +43,6 @@ steps:
     assertions:
       - line: 0
         should_be_equal_to: "3 pinned"
-      - line: 1
-        should_be_equal_to: "{{N_minus_3}} remote"
   - name: change replication to 100000 and expect error
     on_node: 1
     cmd: "ipfs-cluster-ctl --enc json pin add -r 1000000 $HASH | jq .code"

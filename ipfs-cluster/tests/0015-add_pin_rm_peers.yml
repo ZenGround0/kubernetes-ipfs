@@ -10,7 +10,7 @@ config:
   subset_partition:
     partition_type: WEIGHTED
     order: SEQUENTIAL
-    percents: [50, 50]  # [departing group, staying group]
+    percents: [20, 80]  # [departing group, staying group]
 steps:
   - name: record peer multihashes of departing group
     selection:
@@ -181,6 +181,9 @@ steps:
     assertions:
       - line: 0
         should_be_equal_to: "success"
+  - name: sanity check wait a long time
+    on_node: 1
+    cmd: "sleep 20"
   - name: ensure all peers see and replicate all pins
     selection:
       percent:

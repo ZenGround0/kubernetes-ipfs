@@ -43,6 +43,10 @@ mv tmp-ipfs-cluster-deployment.yml ipfs-cluster-deployment.yml
 ./init.sh
 ./config-writer.sh $1 $2
 
+if [[ $3 ]]; then
+  exit 0
+fi
+
 FILE_NAMES=$(find tests -not -name "config.yml" -name "*.yml")
 
 for file in $FILE_NAMES; do
