@@ -137,6 +137,9 @@ steps:
         order: RANDOM
         number: 1
     cmd: "sleep 20; ipfs-cluster-ctl peers add ${ADDR[%i]}"
+  - name: wait for peers to be added back
+    on_node: 1
+    cmd: "sleep 30"
   - name: ensure all peers see the peers that always stayed in cluster
     for:
       iter_structure: STAY_MHs

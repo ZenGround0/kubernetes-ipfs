@@ -129,6 +129,9 @@ steps:
       iter_structure: ADDR
     on_node: {{N}} # the last node is the bootstrapper
     cmd: "sleep 20; ipfs-cluster-ctl peers add ${ADDR[%i]}"
+  - name: wait long enough for all peers to be added
+    on_node: 1
+    cmd: "sleep 30"
   - name: ensure all peers see the peers that always stayed in cluster
     for:
       iter_structure: STAY_MHs
